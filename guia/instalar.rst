@@ -80,7 +80,7 @@ Vamos a configurar el nombre del equipo y preferiblemente que se llame igual com
 Verificar configuración de DNS para Zimbra
 ++++++++++++++++++++++++++++++++
 
-La configuración del DNS Publico se realizo gracias a https://my.freenom.com, sino tuviéramos que instalar nuestro Bind9 y configurarlo como `DNS_Publico <https://github.com/cgomeznt/DNS/blob/master/guia/dns-publico-CentOS7.rst`_.
+La configuración del DNS Publico se realizo gracias a https://my.freenom.com, sino tuviéramos que instalar nuestro Bind9 y configurarlo como `DNS_Publico <https://github.com/cgomeznt/DNS/blob/master/guia/dns-publico-CentOS7.rst>`_.
 
 En este laboratorio se realizo una configuración de `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.::
 
