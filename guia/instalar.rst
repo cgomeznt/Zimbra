@@ -47,35 +47,20 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 +-------------------------------------------------------------+
 |**Records**						      | 
 +-------------------------------------------------------------+
-|**Name	Type	TTL	Target**			      | 	
+|**Name	|Type	|TTL	|Target**			      | 	
 +-------+-------+-------+-------------------------------------+
 |.	|A	|300	|201.209.158.195	      	      |
++-------+-------+-------+-------------------------------------+
 |MAIL	|A	|3600	|201.209.158.195		      |
++-------+-------+-------+-------------------------------------+
 |WWW	|A	|300	|201.209.158.195		      |
++-------+-------+-------+-------------------------------------+
 |.	|MX	|3600	|mail.e-deus.cf	Priority:5	      |
++-------+-------+-------+-------------------------------------+
 |.	|TXT	|3600	|v=spf1 a:mail.e-deus.cf ip4:201.209  |
 +-------+-------+-------+-------------------------------------+
 
 
-  +-----------------------------------------------------------+
-  | **Control de versiones del manual de usuario de gvSIG**   |
-  +==========================+================================+
-  |                          |1. Se ha incluido la documen    |
-  |                          |tación sobre la nueva ventana   |
-  |                          |de salvar proyecto de gvSIG.    |
-  |Manual Usuario gvSIG 1.1  |                                |
-  |Versión 4                 |2. Se ha incluido documentación |
-  |                          |sobre la herramienta de         |
-  |                          |exportar a ráster.              |
-  |                          |                                |
-  |                          |3. Se ha dos errores conocidos: |
-  |                          |                                |
-  |                          |  - Fallo en los resultados de  |
-  |                          |    las funciones de agrupamien |
-  |                          |    to en el geoproceso disolver|
-  |                          |  - Error conocido de la herra  |
-  |                          |    mienta "Exportar a raster"  |
-  +--------------------------+--------------------------------+
 
 v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
 NOTA: 201.209.158.195 es la IP Publica.
