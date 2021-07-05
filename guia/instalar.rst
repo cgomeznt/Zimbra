@@ -57,12 +57,12 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 +-------+-------+-------+-------------------------------------+
 |.	|MX	|3600	|mail.e-deus.cf	Priority:5	      |
 +-------+-------+-------+-------------------------------------+
-|.	|TXT	|3600	|v=spf1 a:mail.e-deus.cf ip4:201.209  |
+|.	|TXT	|3600	|v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all |
 +-------+-------+-------+-------------------------------------+
 
 
 
-v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
+
 NOTA: 201.209.158.195 es la IP Publica.
 
 Dirección IP estática asignada a una interfaz de red
