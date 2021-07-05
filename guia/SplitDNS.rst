@@ -227,3 +227,5 @@ Si tiene varios servidores dentro del firewall que necesitan usar direcciones in
 
 https://wiki.zimbra.com/wiki/Split_DNS
 
+http://docs.zimbra.com/docs/os/6.0.10/single_server_install/quick_start.1.05.html
+

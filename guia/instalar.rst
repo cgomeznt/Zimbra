@@ -1,11 +1,33 @@
 Instalar Zimbra Mail Server
 ===========================
 
+http://docs.zimbra.com/docs/os/6.0.10/single_server_install/quick_start.1.05.html
 
-Disable Selinux
+Disable Selinux, firewalld
+
 
 Disable Unwanted Services
 6. A CentOS default installation ships with postfix daemon already installed and running. To disable and erase postfix service run the following commands:
+
+Desistalar
+
+./install.sh -u
+Removing /opt/zimbra
+Removing zimbra crontab entry...done.
+Cleaning up zimbra init scripts...done.
+Cleaning up /etc/security/limits.conf...done.
+
+Finished removing Zimbra Collaboration Server.
+
+Si en el proceso de instalación vemos este error::
+
+	DNS ERROR - none of the MX records for e-deus.cf
+	resolve to this host
+
+Leer lo siguiente `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`
+
+
+
 
 
 # yum install -y libidn gmp perl perl-core ntpl nmap sudo sysstat sqlite libaio libstdc++ wget unzip
@@ -265,8 +287,6 @@ Create domain: [mail.e-deus.cf] e-deus.cf
 
 
 
-DNS ERROR - none of the MX records for e-deus.cf
-resolve to this host
 It is suggested that the MX record resolve to this host
 Re-Enter domain name? [Yes] No
 done.
