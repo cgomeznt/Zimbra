@@ -24,7 +24,7 @@ Si en el proceso de instalación vemos este error::
 	DNS ERROR - none of the MX records for e-deus.cf
 	resolve to this host
 
-Leer lo siguiente `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`
+Leer lo siguiente `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.
 
 
 
