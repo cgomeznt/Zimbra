@@ -44,18 +44,25 @@ Adquirimos un dominio publico
 
 En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes configuraciones:
 
-Modify Records
+**Records**
 
-Name	Type	TTL	Target	
+**Name	Type	TTL	Target**	
+
 	A	300	201.209.158.195
+
 MAIL	A	3600	201.209.158.195
+
 WWW	A	300	201.209.158.195
+
 	MX	3600	mail.e-deus.cf	Priority:5
+
 	TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
+
+NOTA: 201.209.158.195 es la IP Publica.
 
 Dirección IP estática asignada a una interfaz de red
 ++++++++++++++++++++++++++++
-Esta parte la dejamos sobre entendida que ustede debe asignar una dirección IP Estática a uno de los adaptadores de red. En este ejemplo utilizaremos el adaptador ens32 con la IP Estática 192.168.1.121
+Esta parte la dejamos sobre entendida que usted debe asignar una dirección IP Estática a uno de los adaptadores de red. En este ejemplo utilizaremos el adaptador ens32 con la IP Estática 192.168.1.121, IP Privada.
 
 
 Editamos nuestro registro de HOSTS
@@ -73,7 +80,7 @@ Vamos a configurar el nombre del equipo y preferiblemente que se llame igual com
 Verificar configuración de DNS para Zimbra
 ++++++++++++++++++++++++++++++++
 
-La configuración del DNS Publico se realizo gracias a https://my.freenom.com, sino tuviéramos que instalar nuestro Bind9 y configurarlo como `DNS Publico <https://github.com/cgomeznt/DNS/blob/master/guia/dns-publico-CentOS7.rst`_.
+La configuración del DNS Publico se realizo gracias a https://my.freenom.com, sino tuviéramos que instalar nuestro Bind9 y configurarlo como `DNS_Publico <https://github.com/cgomeznt/DNS/blob/master/guia/dns-publico-CentOS7.rst`_.
 
 En este laboratorio se realizo una configuración de `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.::
 
