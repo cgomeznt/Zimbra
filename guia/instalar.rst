@@ -46,17 +46,17 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 
 **Records**
 
-**Name	Type	TTL	Target**	
+	**Name	Type	TTL	Target**	
 
-	A	300	201.209.158.195
+		A	300	201.209.158.195
 
-MAIL	A	3600	201.209.158.195
+	MAIL	A	3600	201.209.158.195
 
-WWW	A	300	201.209.158.195
+	WWW	A	300	201.209.158.195
 
-	MX	3600	mail.e-deus.cf	Priority:5
+		MX	3600	mail.e-deus.cf	Priority:5
 
-	TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
+		TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
 
 NOTA: 201.209.158.195 es la IP Publica.
 
@@ -159,7 +159,7 @@ Consultamos el any, es decir todos los registros::
 	;; WHEN: dom jul 04 17:35:41 EDT 2021
 	;; MSG SIZE  rcvd: 84
 
-Por defecto en los CentOS viene **Postfix**, lo detenemos y lo desinstalamos:
+Por defecto en los CentOS viene **Postfix**, lo detenemos y lo desinstalamos::
 
 	systemctl stop postfix
 	rpm -qa | grep postfix
