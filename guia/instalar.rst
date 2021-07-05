@@ -46,17 +46,17 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 
 **Records**
 
-	**Name	Type	TTL	Target**	
+**Name	Type	TTL	Target**	
 
-		A	300	201.209.158.195
+.	A	300	201.209.158.195
 
-	MAIL	A	3600	201.209.158.195
+MAIL	A	3600	201.209.158.195
 
-	WWW	A	300	201.209.158.195
+WWW	A	300	201.209.158.195
 
-		MX	3600	mail.e-deus.cf	Priority:5
+.	MX	3600	mail.e-deus.cf	Priority:5
 
-		TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
+.	TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
 
 NOTA: 201.209.158.195 es la IP Publica.
 
