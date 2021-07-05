@@ -195,7 +195,7 @@ Descomprimimos el paquete instalador
 
 Instalamos Zimbra
 +++++++++++++
-
+::
 	cd zcs-8.8.15_GA_3869.RHEL7_64.20190918004220
 
 	# ./install.sh 
