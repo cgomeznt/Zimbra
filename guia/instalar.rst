@@ -42,7 +42,7 @@ Si en el proceso de instalación vemos este error, leer `SplitDNS <https://githu
 Adquirimos un dominio publico
 ++++++++++++++++++++++++++++++
 
-En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes configuraciones:
+En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes configuraciones, en este ejemplo el dominio se llama **e-deus.cf**:
 
 +-------+-------+-------+----------------------------------------------------+
 |**Records**						      		     | 
