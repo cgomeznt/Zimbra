@@ -163,7 +163,7 @@ Para verificar que su configuración de DNS es correcta, debe ejecutar los sigui
 	;; WHEN: Thu Jul 15 14:38:48 2010
 	;; MSG SIZE  rcvd: 140
 
-**dig yourdomain.com any**
+**dig yourdomain.com any**::
 
 	; <<>> DiG 9.3.6-P1-RedHat-9.3.6-4.P1.el5_4.2 <<>> yourdomain.com any
 	;; global options:  printcmd
@@ -191,7 +191,7 @@ Para verificar que su configuración de DNS es correcta, debe ejecutar los sigui
 	;; WHEN: Thu Jul 15 14:38:52 2010
 	;; MSG SIZE  rcvd: 367
 
-**host $(hostname)**
+**host $(hostname)**::
 
 	mail.yourdomain.com has address 192.168.1.30
 
@@ -224,5 +224,6 @@ Si tiene varios servidores dentro del firewall que necesitan usar direcciones in
 
 
 **Article ID: https://wiki.zimbra.com/index.php?title=Split_DNS**
+
 https://wiki.zimbra.com/wiki/Split_DNS
 
