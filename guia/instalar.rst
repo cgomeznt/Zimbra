@@ -177,15 +177,15 @@ Descargamos el Zimbra
 
 **For RHEL/CentOS 8**::
 
-	# wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3953.RHEL8_64.20200629025823.tgz
+	 wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3953.RHEL8_64.20200629025823.tgz
 
 **For RHEL/CentOS 7** Este es el caso que se utilizara en este laboratorio::
 
-	# wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz
+	 wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz
 
 **For RHEL/CentOS 6**::
 
-	# wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL6_64.
+	 wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3869.RHEL6_64.
 
 Descomprimimos el paquete instalador
 +++++++++++++++++++++++++++++++++++
@@ -196,6 +196,7 @@ Descomprimimos el paquete instalador
 Instalamos Zimbra
 +++++++++++++
 ::
+
 	cd zcs-8.8.15_GA_3869.RHEL7_64.20190918004220
 
 	# ./install.sh 
