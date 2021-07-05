@@ -1,15 +1,27 @@
 Instalar Zimbra Mail Server
 ===========================
 
-http://docs.zimbra.com/docs/os/6.0.10/single_server_install/quick_start.1.05.html
+Zimbra Collaboration Suite (ZCS) es una plataforma colaborativa de código abierto para servidores de correo electrónico, desarrollada en dos ediciones, **Open Source edition** (gratuita) y **Network Edition** (de pago), que brinda servicios como LDAP, SMTP, POP e IMAP, cliente de correo web, calendario, tareas, antivirus, antispam y otros.
 
-Disable Selinux, firewalld
+Requerimientos
+++++++++++++++++
+
+Un servidor DNS externo con registros válidos A y MX para apuntar a la dirección IP de su servidor de correo Zimbra.
+
+Una instalación limpia de CentOS sin ningún servidor de correo, bases de datos, LDAP, DNS o Http en funcionamiento.
+
+Una dirección IP estática asignada a una interfaz de red.
+
+Configuración del System Hostname.
+
+Configuración del archivo /etc/hosts.
+
+Configuración de un `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.(Opcional) - http://docs.zimbra.com/docs/os/6.0.10/single_server_install/quick_start.1.05.html
+
+Deshabilitar el Selinux y firewalld.
 
 
-Disable Unwanted Services
-6. A CentOS default installation ships with postfix daemon already installed and running. To disable and erase postfix service run the following commands:
-
-Desistalar::
+Si tienes una instalación de Zimbra y quiere Desinstalar::
 
 	./install.sh -u
 	Removing /opt/zimbra
@@ -17,18 +29,134 @@ Desistalar::
 	Cleaning up zimbra init scripts...done.
 	Cleaning up /etc/security/limits.conf...done.
 
-Finished removing Zimbra Collaboration Server.
+	Finished removing Zimbra Collaboration Server.
 
-Si en el proceso de instalación vemos este error::
+
+
+Si en el proceso de instalación vemos este error, leer `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.::
 
 	DNS ERROR - none of the MX records for e-deus.cf
 	resolve to this host
 
-Leer lo siguiente `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.
+
+Adquirimos un dominio publico
+++++++++++++++++++++++++++++++
+
+En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes configuraciones:
+
+Modify Records
+
+Name	Type	TTL	Target	
+	A	300	201.209.158.195
+MAIL	A	3600	201.209.158.195
+WWW	A	300	201.209.158.195
+	MX	3600	mail.e-deus.cf	Priority:5
+	TXT	3600	v=spf1 a:mail.e-deus.cf ip4:201.209.158.195/23 -all
+
+Dirección IP estática asignada a una interfaz de red
+++++++++++++++++++++++++++++
+Esta parte la dejamos sobre entendida que ustede debe asignar una dirección IP Estática a uno de los adaptadores de red. En este ejemplo utilizaremos el adaptador ens32 con la IP Estática 192.168.1.121
 
 
-
+Editamos nuestro registro de HOSTS
++++++++++++++++++++++++++++++++++
 ::
+
+	echo "192.168.1.121	mail.e-deus.cf mail" >> /etc/hosts
+
+Configuración del System Hostname
++++++++++++++++++++++++++++
+Vamos a configurar el nombre del equipo y preferiblemente que se llame igual como en el registro MX::
+
+	hostnamectl set-hostname mail
+
+Verificar configuración de DNS para Zimbra
+++++++++++++++++++++++++++++++++
+
+La configuración del DNS Publico se realizo gracias a https://my.freenom.com, sino tuviéramos que instalar nuestro Bind9 y configurarlo como `DNS Publico <https://github.com/cgomeznt/DNS/blob/master/guia/dns-publico-CentOS7.rst`_.
+
+En este laboratorio se realizo una configuración de `SplitDNS <https://github.com/cgomeznt/Zimbra/blob/main/guia/SplitDNS.rst>`_.::
+
+
+	dig e-deus.cf
+
+	; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5 <<>> e-deus.cf
+	;; global options: +cmd
+	;; Got answer:
+	;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14556
+	;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+	;; OPT PSEUDOSECTION:
+	; EDNS: version: 0, flags:; udp: 1280
+	;; QUESTION SECTION:
+	;e-deus.cf.			IN	A
+
+	;; ANSWER SECTION:
+	e-deus.cf.		300	IN	A	201.209.158.195
+
+	;; Query time: 404 msec
+	;; SERVER: 127.0.0.1#53(127.0.0.1)
+	;; WHEN: dom jul 04 17:34:32 EDT 2021
+	;; MSG SIZE  rcvd: 5
+	::
+
+Consultamos el MX::
+
+	dig e-deus.cf MX
+
+	; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5 <<>> e-deus.cf MX
+	;; global options: +cmd
+	;; Got answer:
+	;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50094
+	;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 2
+
+	;; OPT PSEUDOSECTION:
+	; EDNS: version: 0, flags:; udp: 4096
+	;; QUESTION SECTION:
+	;e-deus.cf.			IN	MX
+
+	;; ANSWER SECTION:
+	e-deus.cf.		0	IN	MX	5 mail.e-deus.cf.
+
+	;; ADDITIONAL SECTION:
+	mail.e-deus.cf.		0	IN	A	192.168.1.121
+
+	;; Query time: 0 msec
+	;; SERVER: 127.0.0.1#53(127.0.0.1)
+	;; WHEN: dom jul 04 17:35:05 EDT 2021
+	;; MSG SIZE  rcvd: 84
+
+Consultamos el any, es decir todos los registros::
+
+	dig e-deus.cf any
+
+	; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5 <<>> e-deus.cf any
+	;; global options: +cmd
+	;; Got answer:
+	;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 43897
+	;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 2
+
+	;; OPT PSEUDOSECTION:
+	; EDNS: version: 0, flags:; udp: 4096
+	;; QUESTION SECTION:
+	;e-deus.cf.			IN	ANY
+
+	;; ANSWER SECTION:
+	e-deus.cf.		0	IN	MX	5 mail.e-deus.cf.
+
+	;; ADDITIONAL SECTION:
+	mail.e-deus.cf.		0	IN	A	192.168.1.121
+
+	;; Query time: 1 msec
+	;; SERVER: 127.0.0.1#53(127.0.0.1)
+	;; WHEN: dom jul 04 17:35:41 EDT 2021
+	;; MSG SIZE  rcvd: 84
+
+Por defecto en los CentOS viene **Postfix**, lo detenemos y lo desinstalamos:
+
+	systemctl stop postfix
+	rpm -qa | grep postfix
+	rpm -e postfix-2.10.1-9.el7.x86_64
 
 	# yum install -y libidn gmp perl perl-core ntpl nmap sudo sysstat sqlite libaio libstdc++ wget unzip
 
