@@ -111,6 +111,14 @@ Digamos que los DNS ascendentes son 8.8.8.8 y 208.67.222.222. Pon solo estas lí
 	mx-host=yourdomain.com,mail.yourdomain.com,5
 	listen-address=127.0.0.1
 
+Así quedaria para el ejemplo con el dominio **e-deus.cf**::
+
+	server=8.8.8.8
+	server= 200.44.32.12
+	domain=e-deus.cf
+	mx-host=e-deus.cf,mail.e-deus.cf,5
+	listen-address=127.0.0.1
+
 
 Edite el archivo /etc/hosts
 ++++++++++++++

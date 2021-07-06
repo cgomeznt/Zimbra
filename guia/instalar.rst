@@ -69,6 +69,12 @@ Dirección IP estática asignada a una interfaz de red
 ++++++++++++++++++++++++++++
 Esta parte la dejamos sobre entendida que usted debe asignar una dirección IP Estática a uno de los adaptadores de red. En este ejemplo utilizaremos el adaptador ens32 con la IP Estática 192.168.1.121, IP Privada.
 
+Configuración del System Hostname
++++++++++++++++++++++++++++
+Vamos a configurar el nombre del equipo y preferiblemente que se llame igual como en el registro MX::
+
+	hostnamectl set-hostname mail
+
 
 Editamos nuestro registro de HOSTS
 +++++++++++++++++++++++++++++++++
@@ -76,11 +82,6 @@ Editamos nuestro registro de HOSTS
 
 	echo "192.168.1.121	mail.e-deus.cf mail" >> /etc/hosts
 
-Configuración del System Hostname
-+++++++++++++++++++++++++++
-Vamos a configurar el nombre del equipo y preferiblemente que se llame igual como en el registro MX::
-
-	hostnamectl set-hostname mail
 
 Verificar configuración de DNS para Zimbra
 ++++++++++++++++++++++++++++++++
@@ -206,7 +207,7 @@ Instalamos Zimbra
 
 	# ./install.sh 
 
-	Operations logged to /tmp/install.log.ZTiE17ry
+	Operations logged to /tmp/install.log.NL1soIAV
 	Checking for existing installation...
 	    zimbra-drive...NOT FOUND
 	    zimbra-imapd...NOT FOUND
@@ -248,7 +249,7 @@ Instalamos Zimbra
 
 
 
-	Do you agree with the terms of the software license agreement? [N] Y
+	Do you agree with the terms of the software license agreement? [N] y
 
 
 
@@ -282,31 +283,31 @@ Instalamos Zimbra
 
 	Select the packages to install
 
-	Install zimbra-ldap [Y] Y
+	Install zimbra-ldap [Y] 
 
-	Install zimbra-logger [Y] Y
+	Install zimbra-logger [Y] 
 
-	Install zimbra-mta [Y] Y
+	Install zimbra-mta [Y] 
 
-	Install zimbra-dnscache [Y] N
+	Install zimbra-dnscache [Y] n
 
-	Install zimbra-snmp [Y] Y
+	Install zimbra-snmp [Y] 
 
-	Install zimbra-store [Y] Y
+	Install zimbra-store [Y] 
 
-	Install zimbra-apache [Y] Y
+	Install zimbra-apache [Y] 
 
-	Install zimbra-spell [Y] Y
+	Install zimbra-spell [Y] 
 
-	Install zimbra-memcached [Y] Y
+	Install zimbra-memcached [Y] 
 
-	Install zimbra-proxy [Y] Y
+	Install zimbra-proxy [Y] 
 
-	Install zimbra-drive [Y] Y
+	Install zimbra-drive [Y] 
 
-	Install zimbra-imapd (BETA - for evaluation only) [N] N
+	Install zimbra-imapd (BETA - for evaluation only) [N] 
 
-	Install zimbra-chat [Y] Y
+	Install zimbra-chat [Y] 
 	Checking required space for zimbra-core
 	Checking space for zimbra-store
 	Checking required packages for zimbra-store
@@ -329,9 +330,9 @@ Instalamos Zimbra
 	    zimbra-proxy-patch
 	    zimbra-chat
 
-	The system will be modified.  Continue? [N] Y
+	The system will be modified.  Continue? [N] y
 
-	Beginning Installation - see /tmp/install.log.ZTiE17ry for details...
+	Beginning Installation - see /tmp/install.log.NL1soIAV for details...
 
 		                  zimbra-core-components will be downloaded and installed.
 		                    zimbra-timezone-data will be installed.
@@ -445,27 +446,24 @@ Instalamos Zimbra
 	      ...done
 
 	Running Post Installation Configuration:
-	Operations logged to /tmp/zmsetup.20210630-220055.log
+	Operations logged to /tmp/zmsetup.20210705-054141.log
 	Installing LDAP configuration database...done.
-	Setting defaults...zmserverips: unable to execute: /sbin/ip
-
-
+	Setting defaults...
 
 	DNS ERROR resolving MX for mail.e-deus.cf
 	It is suggested that the domain name have an MX record configured in DNS
 	Change domain name? [Yes] 
 	Create domain: [mail.e-deus.cf] e-deus.cf
-		MX: mail.e-deus.cf (201.210.54.31)
+		MX: mail.e-deus.cf (192.168.1.121)
 
-
-
-	It is suggested that the MX record resolve to this host
-	Re-Enter domain name? [Yes] No
+		Interface: 127.0.0.1
+		Interface: ::1
+		Interface: 192.168.1.121
 	done.
 	Checking for port conflicts
 
 	Main menu
-
+No olvidemos para que pueda ser aceptado por los dominios externos el envio de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estatica, no estar en listas negras, etc...etc.
 	   1) Common Configuration:                                                  
 	   2) zimbra-ldap:                             Enabled                       
 	   3) zimbra-logger:                           Enabled                       
@@ -475,10 +473,10 @@ Instalamos Zimbra
 		+Create Admin User:                    yes                           
 		+Admin user to create:                 admin@e-deus.cf               
 	******* +Admin Password                        UNSET                         
-		+Anti-virus quarantine user:           virus-quarantine.jr0litgdw@e-deus.cf
+		+Anti-virus quarantine user:           virus-quarantine.j_ccei19_k@e-deus.cf
 		+Enable automated spam training:       yes                           
-		+Spam training user:                   spam.hbpifavdo0@e-deus.cf     
-		+Non-spam(Ham) training user:          ham.pm0uywnjj@e-deus.cf       
+		+Spam training user:                   spam.sqf61svu@e-deus.cf       
+		+Non-spam(Ham) training user:          ham.mmgck4ykr_@e-deus.cf      
 		+SMTP host:                            mail.e-deus.cf                
 		+Web server HTTP port:                 8080                          
 		+Web server HTTPS port:                8443                          
@@ -512,10 +510,10 @@ Instalamos Zimbra
 	   2) Create Admin User:                       yes                           
 	   3) Admin user to create:                    admin@e-deus.cf               
 	** 4) Admin Password                           UNSET                         
-	   5) Anti-virus quarantine user:              virus-quarantine.jr0litgdw@e-deus.cf
+	   5) Anti-virus quarantine user:              virus-quarantine.j_ccei19_k@e-deus.cf
 	   6) Enable automated spam training:          yes                           
-	   7) Spam training user:                      spam.hbpifavdo0@e-deus.cf     
-	   8) Non-spam(Ham) training user:             ham.pm0uywnjj@e-deus.cf       
+	   7) Spam training user:                      spam.sqf61svu@e-deus.cf       
+	   8) Non-spam(Ham) training user:             ham.mmgck4ykr_@e-deus.cf      
 	   9) SMTP host:                               mail.e-deus.cf                
 	  10) Web server HTTP port:                    8080                          
 	  11) Web server HTTPS port:                   8443                          
@@ -535,7 +533,7 @@ Instalamos Zimbra
 
 	Select, or 'r' for previous menu [r] 4
 
-	Password for admin@e-deus.cf (min 6 characters): [NZBsVCRy] r00tme
+	Password for admin@e-deus.cf (min 6 characters): [EhEeEk1T] r00tme
 
 	Store configuration
 
@@ -543,10 +541,10 @@ Instalamos Zimbra
 	   2) Create Admin User:                       yes                           
 	   3) Admin user to create:                    admin@e-deus.cf               
 	   4) Admin Password                           set                           
-	   5) Anti-virus quarantine user:              virus-quarantine.jr0litgdw@e-deus.cf
+	   5) Anti-virus quarantine user:              virus-quarantine.j_ccei19_k@e-deus.cf
 	   6) Enable automated spam training:          yes                           
-	   7) Spam training user:                      spam.hbpifavdo0@e-deus.cf     
-	   8) Non-spam(Ham) training user:             ham.pm0uywnjj@e-deus.cf       
+	   7) Spam training user:                      spam.sqf61svu@e-deus.cf       
+	   8) Non-spam(Ham) training user:             ham.mmgck4ykr_@e-deus.cf      
 	   9) SMTP host:                               mail.e-deus.cf                
 	  10) Web server HTTP port:                    8080                          
 	  11) Web server HTTPS port:                   8443                          
@@ -584,10 +582,10 @@ Instalamos Zimbra
 	*** CONFIGURATION COMPLETE - press 'a' to apply
 	Select from menu, or press 'a' to apply config (? - help) a
 	Save configuration data to a file? [Yes] 
-	Save config in file: [/opt/zimbra/config.7254] 
-	Saving config in /opt/zimbra/config.7254...done.
-	The system will be modified - continue? [No] Yes
-	Operations logged to /tmp/zmsetup.20210630-220055.log
+	Save config in file: [/opt/zimbra/config.19209] 
+	Saving config in /opt/zimbra/config.19209...done.
+	The system will be modified - continue? [No] y
+	Operations logged to /tmp/zmsetup.20210705-054141.log
 	Setting local config values...done.
 	Initializing core config...Setting up CA...done.
 	Deploying CA to /opt/zimbra/conf/ca ...done.
@@ -629,35 +627,35 @@ Instalamos Zimbra
 	Creating admin account admin@e-deus.cf...done.
 	Creating root alias...done.
 	Creating postmaster alias...done.
-	Creating user spam.hbpifavdo0@e-deus.cf...done.
-	Creating user ham.pm0uywnjj@e-deus.cf...done.
-	Creating user virus-quarantine.jr0litgdw@e-deus.cf...done.
+	Creating user spam.sqf61svu@e-deus.cf...done.
+	Creating user ham.mmgck4ykr_@e-deus.cf...done.
+	Creating user virus-quarantine.j_ccei19_k@e-deus.cf...done.
 	Setting spam training and Anti-virus quarantine accounts...done.
 	Initializing store sql database...done.
 	Setting zimbraSmtpHostname for mail.e-deus.cf...done.
 	Configuring SNMP...done.
-	Setting up syslog.conf...Failed
+	Setting up syslog.conf...done.
 	Starting servers...done.
 	Installing common zimlets...
 		com_zimbra_adminversioncheck...done.
-		com_zimbra_bulkprovision...done.
 		com_zimbra_attachcontacts...done.
-		com_zimbra_srchhighlighter...done.
-		com_zimbra_cert_manager...done.
-		com_zimbra_tooltip...done.
-		com_zextras_chat_open...done.
-		com_zimbra_phone...done.
-		com_zimbra_mailarchive...done.
-		com_zimbra_webex...done.
 		com_zimbra_attachmail...done.
-		com_zextras_drive_open...done.
+		com_zimbra_bulkprovision...done.
+		com_zimbra_cert_manager...done.
 		com_zimbra_clientuploader...done.
-		com_zimbra_ymemoticons...done.
 		com_zimbra_date...done.
-		com_zimbra_viewmail...done.
-		com_zimbra_url...done.
-		com_zimbra_proxy_config...done.
 		com_zimbra_email...done.
+		com_zimbra_mailarchive...done.
+		com_zimbra_phone...done.
+		com_zimbra_proxy_config...done.
+		com_zimbra_srchhighlighter...done.
+		com_zimbra_tooltip...done.
+		com_zimbra_url...done.
+		com_zimbra_viewmail...done.
+		com_zimbra_webex...done.
+		com_zimbra_ymemoticons...done.
+		com_zextras_drive_open...done.
+		com_zextras_chat_open...done.
 	Finished installing common zimlets.
 	Restarting mailboxd...done.
 	Creating galsync account for default domain...done.
@@ -668,16 +666,19 @@ Instalamos Zimbra
 		The VERSION of zcs installed (8.8.15_GA_3869_RHEL7_64)
 		The ADMIN EMAIL ADDRESS created (admin@e-deus.cf)
 
-	Notify Zimbra of your installation? [Yes] No
+	Notify Zimbra of your installation? [Yes] n
 	Notification skipped
 	Checking if the NG started running...done. 
 	Setting up zimbra crontab...done.
 
 
-	Moving /tmp/zmsetup.20210630-220055.log to /opt/zimbra/log
+	Moving /tmp/zmsetup.20210705-054141.log to /opt/zimbra/log
 
 
 	Configuration complete - press return to exit 
+
+
+	[root@mail zcs-8.8.15_GA_3869.RHEL7_64.20190918004220]# 
 
 
 Verificamos los puertos abiertos
@@ -725,4 +726,5 @@ Verificamos los puertos abiertos
 	tcp6       0      0 :::11211                :::*                    LISTEN  
 
 
+No olvidemos para que pueda ser aceptado por los dominios externos el envío de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estática, no estar en listas negras, etc...etc.
 
