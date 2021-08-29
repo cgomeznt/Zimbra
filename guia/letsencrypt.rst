@@ -46,6 +46,7 @@ Instalando **certbot** con snap
 
 Creando el certificado firmado por letsencrypt
 ++++++++++++++++++++++++++++++++++++++++++++++
+::
 
 	# certbot certonly -d mail.e-deus.cf -m cgomeznt@gmail.com --standalone
 	Saving debug log to /var/log/letsencrypt/letsencrypt.log
@@ -243,6 +244,9 @@ Test el nuevo SSL Certificado
 
 Test el nuevo SSL Certificado con OpenSSL
 ++++++++++++++++++++++
+::
+
+	echo QUIT | openssl s_client -connect e-deus.cf:443 | openssl x509 -noout -text | less
 
 Verifying SSL certificate is not expired
 +++++++++++++++++++++++++++++++++
