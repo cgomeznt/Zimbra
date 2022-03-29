@@ -7,6 +7,7 @@
 * [Problema con certificado vencido](guia/problem_certificados.rst) 
 * [Verificar Certificados todos los servicios](guia/verificar_certificados.rst) 
 * [Instalar un certificado comercial](guia/Instalar_certificado_comercial.rst) 
+* [Habilitandorelaying Remote](guia/Habilitando_relaying_Remote.rst) 
 * [Backup script](guia/Backup_script.rst) 
 
 
