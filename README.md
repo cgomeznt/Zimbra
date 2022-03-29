@@ -4,6 +4,11 @@
 * [Instalar Zimbra Mail Server](guia/instalar.rst) 
 * [Configurar Zimbra Mail Server](guia/configurar.rst) 
 * [Certificados Digitales Letsencrypt para zimbra](guia/letsencrypt.rst) 
+* [Problema con certificado vencido](guia/problem_certificados.rst) 
+* [Verificar Certificados todos los servicios](guia/verificar_certificados.rst) 
+* [Instalar un certificado comercial](guia/Instalar_certificado_comercial.rst) 
+* [Backup script](guia/Backup_script.rst) 
+
 
 Permitir el acceso a los puertos del zimbra.
 Respaldo Restauración.
