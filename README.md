@@ -8,8 +8,10 @@
 * [Verificar Certificados todos los servicios](guia/verificar_certificados.rst) 
 * [Instalar un certificado comercial](guia/Instalar_certificado_comercial.rst) 
 * [Habilitando Relaying Remote](guia/Habilitando_relaying_Remote.rst) 
+* [Cambiar clave admin](guia/Cambiar_clave_admin.rst) 
 * [Backup script](guia/Backup_script.rst) 
 
+Cambiar_clave_admin.rst
 
 Permitir el acceso a los puertos del zimbra.
 Respaldo Restauración.
