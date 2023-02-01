@@ -463,7 +463,8 @@ Instalamos Zimbra
 	Checking for port conflicts
 
 	Main menu
-No olvidemos para que pueda ser aceptado por los dominios externos el envio de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estatica, no estar en listas negras, etc...etc.
+No olvidemos para que pueda ser aceptado por los dominios externos el envio de email, debemos cumplir con las convenciones de correo, como tener un DNS el registro MX y su tipo A, el PTR, tener un SPF, tener una IP estatica, no estar en listas negras, etc...etc.::
+
 	   1) Common Configuration:                                                  
 	   2) zimbra-ldap:                             Enabled                       
 	   3) zimbra-logger:                           Enabled                       
