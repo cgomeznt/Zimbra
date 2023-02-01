@@ -3,6 +3,7 @@
 * [Requisitos de DNS](guia/requisitosDNS.rst)
 * [SplitDNS](guia/SplitDNS.rst)
 * [Instalar Zimbra Mail Server](guia/instalar.rst) 
+* [Uninstall Zimbra Mail Server](guia/uninstall.rst) 
 * [Configurar Zimbra Mail Server](guia/configurar.rst) 
 * [Start Stop](guia/startstop.rst) 
 * [Certificados Digitales Letsencrypt para zimbra](guia/letsencrypt.rst) 
