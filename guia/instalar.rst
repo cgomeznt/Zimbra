@@ -181,6 +181,10 @@ Instalamos paquetes requeridos por Zimbra
 Descargamos el Zimbra
 ++++++++++++++++++
 
+**For RockyLinux 8**::
+
+	https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4362.RHEL8_64.20220721104405.tgz
+	
 **For RHEL/CentOS 8**::
 
 	 wget https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_3953.RHEL8_64.20200629025823.tgz
