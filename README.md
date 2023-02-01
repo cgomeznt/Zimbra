@@ -41,6 +41,11 @@ IMPORTANT NOTES:
 
    Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
    Donating to EFF:                    https://eff.org/donate-le
+   
+   
+Instalar Zimbra en Almalinux 8 
+
+https://computingforgeeks.com/install-zimbra-mail-server-on-rocky-almalinux-rhel/
 
 
 
