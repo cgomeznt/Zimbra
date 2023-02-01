@@ -205,7 +205,32 @@ Descomprimimos el paquete instalador
 
 Instalamos Zimbra
 +++++++++++++
-::
+
+Si estas con Almalinux y se presenta este error::
+
+	./util/utilfunc.sh: linea 2316: print: no se encontro la orden
+
+Debemos editar el script get_plat_tag.sh para agregar la linea del release de Almalinux::
+
+	# find . -name "get_plat_tag.sh"
+	./bin/get_plat_tag.sh
+	[root@localhost zcs-8.8.15_GA_3953.RHEL8_64.20200629025823]# vi ./bin/get_plat_tag.sh
+
+	# cat /etc/redhat-release
+	AlmaLinux release 8.7 (Stone Smilodon)
+	[root@localhost zcs-8.8.15_GA_3953.RHEL8_64.20200629025823]#
+
+
+	vi ./bin/get_plat_tag.sh 
+	[...]
+	  grep "AlmaLinux release 8.7" /etc/redhat-release > /dev/null 2>&1
+	  if [ $? = 0 ]; then
+	    echo "RHEL8${i}"
+	    exit 0
+	  fi
+	[...]
+
+Continuamos::
 
 	cd zcs-8.8.15_GA_3869.RHEL7_64.20190918004220
 
