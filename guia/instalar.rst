@@ -65,7 +65,7 @@ En https://my.freenom.com adquirimos el Dominio y en realizamos las siguientes c
 
 
 
-NOTA: 201.209.158.195 es la IP Publica.
+NOTA: 190.114.9.23 es la IP Publica.
 
 Dirección IP estática asignada a una interfaz de red
 ++++++++++++++++++++++++++++
